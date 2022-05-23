@@ -1,0 +1,19 @@
+@keyframes slide {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: 100%;
+    }
+}
+
+@keyframes transport {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

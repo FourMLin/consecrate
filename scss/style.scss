@@ -1,139 +1,186 @@
 @import '_normalize';
 @import '_variables';
+@import '_animation';
 
+@media all and (min-width: $mobile-media) {
 
-.home {
-    background: url(../img/home-bg.png) center no-repeat;
-    background-size: cover;
-    height: 100vh;
-    max-height: 100vh;
-    overflow: hidden;
-    position: relative;
-}
-
-.home-words {
-    background: url(../img/consecrate-words.png) top center no-repeat;
-    height: 100vh;
-    max-height: 100vh;
-    background-size: 70%;
-    z-index: 0;
-}
-
-.character {
-    max-width: 50%;
-    width: 50%;
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    margin: 0 auto;
-    display: flex;
-
-    .ch-item {
-        width: 100%;
-        height: 100%;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
+    .home {
+        background: url(../img/home-bg.png) center no-repeat;
+        background-size: cover;
+        height: 100vh;
+        max-height: 100vh;
+        overflow: hidden;
         position: relative;
-        cursor: pointer;
+        animation: transport 0.5s both ease-in-out;
+        animation-delay: 0.5s;
+    }
 
-        .ch-item-img {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
+    .home-words {
+        background: url(../img/consecrate-words.png) top center no-repeat;
+        height: 100vh;
+        max-height: 100vh;
+        background-size: 70%;
+        z-index: 0;
+    }
 
-            &::before{
-                content: "";
-                width: 100%;
-                height: 100%;
+    .character {
+        max-width: 1200px;
+        min-width: 650px;
+        width: 50%;
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        margin: 0 auto;
+        display: flex;
+
+        .ch-item {
+            width: 100%;
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: relative;
+            cursor: pointer;
+
+            .ch-item-img {
                 position: absolute;
-                background-size: 100%;
-                top: 0;
-                left: 0;
-                z-index: 3;
-            }
-        }
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 2;
 
-        &:hover{
-
-            &::after {
-                content: "";
-                position: relative;
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                height: 100%;
-                z-index: 1;
-            }
-
-        }
-    }
-
-    .character-iceborg {
-
-        .ch-item-img {
-            width: 135px;
-            bottom: 45px;
-        }
-
-    }
-
-    .character-blackbug {
-
-        .ch-item-img {
-            width: 155px;
-            bottom: 30px;
-        }
-    }
-
-    .character-sweet {
-        z-index: 2;
-
-        .ch-item-img {
-            width: 300px;
-            bottom: 30px;
-        }
-
-    }
-
-    .character-twilight {
-
-        .ch-item-img {
-            width: 95px;
-            bottom: 40px;
-        }
-    }
-
-    .character-firecat {
-
-        .ch-item-img {
-            width: 190px;
-            bottom: 30px;
-        }
-
-
-        &:hover {
-
-            .ch-item-img{
-
-                &::before{
-                    background-image: url(../img/firecat_color.png);
+                &::before {
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    background-size: 100%;
+                    top: 0;
+                    left: 0;
+                    z-index: 3;
                 }
             }
 
-            &::after {
-                background-image: url(../img/firecat_hover.png);
-                width: 420px;
+            &:hover {
+
+                &::after {
+                    content: "";
+                    position: relative;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    z-index: 1;
+                }
+
+            }
+        }
+
+        .character-iceborg {
+
+            .ch-item-img {
+                width: 135px;
+                bottom: 45px;
             }
 
-            
+        }
+
+        .character-blackbug {
+
+            .ch-item-img {
+                width: 155px;
+                bottom: 30px;
+            }
+        }
+
+        .character-sweet {
+            z-index: 2;
+
+            .ch-item-img {
+                width: 300px;
+                bottom: 30px;
+            }
+
+        }
+
+        .character-twilight {
+
+            .ch-item-img {
+                width: 95px;
+                bottom: 40px;
+            }
+        }
+
+        .character-firecat {
+
+            .ch-item-img {
+                width: 190px;
+                bottom: 30px;
+            }
+
+
+            &:hover {
+
+                .ch-item-img {
+
+                    &::before {
+                        background-image: url(../img/firecat_color.png);
+                    }
+                }
+
+                &::after {
+                    background-image: url(../img/firecat_hover.png);
+                    width: 420px;
+                    animation: slide 0.2s both ease-in-out;
+
+                }
+
+
+            }
         }
     }
+
+    //page
+
+    .page{
+        background: url(../img/page-bg.png) bottom center no-repeat;
+        background-size: 100%;
+        height: 100vh;
+        max-height: 100vh;
+        overflow: hidden;
+        position: relative;
+        animation: transport 0.5s both ease-in-out;
+
+    }
+
+    .character-stand{
+        position: absolute;
+        top: 0;
+        right: 200px;
+        background-image: url(../img/firecat_color.png);
+        background-repeat: no-repeat;
+        background-size: 30%;
+        background-position: right 27% bottom 50%;
+        width: 1000px;
+        height: 100%;
+    }
+
+    .character-bg{
+        position: absolute;
+        top: 0;
+        right: 150px;
+        background-image: url(../img/firecat-bg.png);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: right 30% bottom 30%;
+        width: 750px;
+        height: 100%;
+        filter: grayscale(1);
+    }
+
 }
