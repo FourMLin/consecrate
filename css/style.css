@@ -375,12 +375,12 @@ textarea {
     z-index: 1;
   }
   .character .character-iceborg .ch-item-img {
-    width: 135px;
-    bottom: 45px;
+    width: 130px;
+    bottom: 80px;
   }
   .character .character-blackbug .ch-item-img {
-    width: 155px;
-    bottom: 30px;
+    width: 150px;
+    bottom: 70px;
   }
   .character .character-sweet {
     z-index: 2;
@@ -391,11 +391,11 @@ textarea {
   }
   .character .character-twilight .ch-item-img {
     width: 95px;
-    bottom: 40px;
+    bottom: 60px;
   }
   .character .character-firecat .ch-item-img {
     width: 190px;
-    bottom: 30px;
+    bottom: 55px;
   }
   .character .character-firecat:hover .ch-item-img::before {
     background-image: url(../img/firecat_color.png);
@@ -549,3 +549,4 @@ textarea {
             transform: rotate(180deg);
   }
 }
+/*# sourceMappingURL=style.css.map */
