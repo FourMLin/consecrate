@@ -453,7 +453,7 @@ textarea {
     background-image: url(../img/firecat-bg.png);
     background-repeat: no-repeat;
     background-size: 100%;
-    background-position: right  bottom 30%;
+    background-position: right bottom 30%;
     width: 800px;
     height: 100%;
     -webkit-filter: grayscale(1);
@@ -467,56 +467,85 @@ textarea {
     margin: 5% auto;
   }
   .name {
-    max-width: 200px;
+    max-width: 250px;
+    margin-left: -30px;
   }
   .personal-value {
-    margin: 3rem 0;
     width: 50%;
   }
-  .personal-value ul li {
+  .personal-value ul {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .personal-value ul li {
     margin-bottom: 1rem;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 20%;
+            flex: 1 0 20%;
+    max-width: 20%;
+    padding: 0 4px;
   }
   .personal-value ul li .value-title {
     margin: auto 0;
-    -webkit-box-flex: 1;
-        -ms-flex: 1 0 25%;
-            flex: 1 0 25%;
+    text-align: center;
+    font-size: 14px;
   }
   .personal-value ul li .value-bar {
     position: relative;
-    width: 90%;
+    width: 100%;
+    min-height: 160px;
     margin: auto 0;
-  }
-  .personal-value ul li .value-bar .value-bar-b {
-    background-color: #121111;
-    height: 12px;
-    position: absolute;
-    top: 50%;
-    left: 2rem;
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
-    z-index: 1;
   }
   .personal-value ul li .value-bar::after {
     content: "";
-    background-color: #d4d4d4;
-    width: 100%;
-    max-width: 100%;
-    height: 8px;
     position: absolute;
-    top: 50%;
-    left: 2rem;
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
-    z-index: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #121111;
+  }
+  .personal-value ul li .value-bar.first::after {
+    height: 160px;
+  }
+  .personal-value ul li .value-bar.sec::after {
+    height: 128px;
+  }
+  .personal-value ul li .value-bar.thrd::after {
+    height: 96px;
+  }
+  .personal-value ul li .value-bar.fourth::after {
+    height: 64px;
+  }
+  .personal-value ul li .value-bar.fifth::after {
+    height: 32px;
   }
   .story {
     width: 50%;
+    margin: 3rem 0;
   }
   .story p {
     margin: 1rem 0;
+  }
+  .arrow-b {
+    width: 30px;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    cursor: pointer;
+  }
+  .arrow-b.pre {
+    left: 6%;
+  }
+  .arrow-b.next {
+    right: 6%;
+  }
+  .arrow-b.next img {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
   }
 }

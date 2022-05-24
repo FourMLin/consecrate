@@ -147,7 +147,7 @@
 
     //page
 
-    .page{
+    .page {
         background: url(../img/page-bg.png) bottom center no-repeat;
         background-size: 100%;
         height: 100vh;
@@ -158,30 +158,30 @@
 
     }
 
-    .line{
+    .line {
         position: fixed;
         width: 100%;
         height: 100%;
     }
 
-    .line-b{
+    .line-b {
         width: 1px;
         height: 100%;
         background-color: $black;
         position: absolute;
         top: 0;
-        
 
-        &.line-l{
+
+        &.line-l {
             left: 5%;
         }
 
-        &.line-r{
+        &.line-r {
             right: 5%;
         }
     }
 
-    .character-stand{
+    .character-stand {
         position: absolute;
         top: 0;
         right: 100px;
@@ -194,83 +194,128 @@
         z-index: -1;
     }
 
-    .character-bg{
+    .character-bg {
         position: absolute;
         top: 0;
         right: 50px;
         background-image: url(../img/firecat-bg.png);
         background-repeat: no-repeat;
         background-size: 100%;
-        background-position: right  bottom 30%;
+        background-position: right bottom 30%;
         width: 800px;
         height: 100%;
         filter: grayscale(1);
         z-index: -1;
     }
 
-    .data{
+    .data {
         max-width: 55%;
         position: relative;
         z-index: 2;
         margin: 5% auto;
     }
 
-    .name{
-        max-width: 200px;
+    .name {
+        max-width: 250px;
+        margin-left: -30px;
     }
 
-    .personal-value{
-        margin: 3rem 0;
+    .personal-value {
         width: 50%;
-    
-        ul{
-            li{
-                display: flex;
-                margin-bottom: 1rem;
 
-                .value-title{
+        ul {
+            display: flex;
+            justify-content: space-between;
+
+            li {
+                margin-bottom: 1rem;
+                flex: 1 0 20%;
+                max-width: 20%;
+                padding: 0 4px;
+
+                .value-title {
                     margin: auto 0;
-                    flex: 1 0 25%;
+                    text-align: center;
+                    font-size: 14px;
                 }
 
-                .value-bar{
+                .value-bar {
                     position: relative;
-                    width: 90%;
+                    width: 100%;
+                    min-height: 160px;
                     margin: auto 0;
 
-                    .value-bar-b{
-                        background-color: $black;
-                        height: 12px;
+                    &::after {
+                        content: "";
                         position: absolute;
-                        top: 50%;
-                        left: 2rem;
-                        transform: translateY(-50%);
-                        z-index: 1;
+                        bottom: 0;
+                        left: 0;
+                        width: 100%;
+                        background-color: $black;
+                    }
+
+                    &.first {
+
+                        &::after {
+                            height: 160px;
+                        }
 
                     }
 
-                    &::after{
-                        content: "";
-                        background-color: $pale-gray;
-                        width: 100%;
-                        max-width: 100%;
-                        height: 8px;
-                        position: absolute;
-                        top: 50%;
-                        left: 2rem;
-                        transform: translateY(-50%);
-                        z-index: 0;
+                    &.sec {
+                        &::after {
+                            height: 128px;
+                        }
+                    }
+
+                    &.thrd {
+                        &::after {
+                            height: 96px;
+                        }
+                    }
+
+                    &.fourth {
+                        &::after {
+                            height: 64px;
+                        }
+                    }
+
+                    &.fifth {
+                        &::after {
+                            height: 32px;
+                        }
                     }
                 }
             }
         }
     }
 
-    .story{
+    .story {
         width: 50%;
+        margin: 3rem 0;
 
-        p{
+        p {
             margin: 1rem 0;
+        }
+    }
+
+    .arrow-b {
+        width: 30px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+
+        &.pre {
+            left: 6%;
+        }
+
+        &.next {
+            right: 6%;
+
+            img {
+                transform: rotate(180deg);
+            }
         }
     }
 
