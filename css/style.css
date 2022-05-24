@@ -416,29 +416,107 @@ textarea {
     -webkit-animation: transport 0.5s both ease-in-out;
             animation: transport 0.5s both ease-in-out;
   }
+  .line {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+  }
+  .line-b {
+    width: 1px;
+    height: 100%;
+    background-color: #121111;
+    position: absolute;
+    top: 0;
+  }
+  .line-b.line-l {
+    left: 5%;
+  }
+  .line-b.line-r {
+    right: 5%;
+  }
   .character-stand {
     position: absolute;
     top: 0;
-    right: 200px;
+    right: 100px;
     background-image: url(../img/firecat_color.png);
     background-repeat: no-repeat;
-    background-size: 30%;
-    background-position: right 27% bottom 50%;
+    background-size: 34%;
+    background-position: right 180px bottom 50%;
     width: 1000px;
     height: 100%;
+    z-index: -1;
   }
   .character-bg {
     position: absolute;
     top: 0;
-    right: 150px;
+    right: 50px;
     background-image: url(../img/firecat-bg.png);
     background-repeat: no-repeat;
     background-size: 100%;
-    background-position: right 30% bottom 30%;
-    width: 750px;
+    background-position: right  bottom 30%;
+    width: 800px;
     height: 100%;
     -webkit-filter: grayscale(1);
             filter: grayscale(1);
+    z-index: -1;
+  }
+  .data {
+    max-width: 55%;
+    position: relative;
+    z-index: 2;
+    margin: 5% auto;
+  }
+  .name {
+    max-width: 200px;
+  }
+  .personal-value {
+    margin: 3rem 0;
+    width: 50%;
+  }
+  .personal-value ul li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 1rem;
+  }
+  .personal-value ul li .value-title {
+    margin: auto 0;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 25%;
+            flex: 1 0 25%;
+  }
+  .personal-value ul li .value-bar {
+    position: relative;
+    width: 90%;
+    margin: auto 0;
+  }
+  .personal-value ul li .value-bar .value-bar-b {
+    background-color: #121111;
+    height: 12px;
+    position: absolute;
+    top: 50%;
+    left: 2rem;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    z-index: 1;
+  }
+  .personal-value ul li .value-bar::after {
+    content: "";
+    background-color: #d4d4d4;
+    width: 100%;
+    max-width: 100%;
+    height: 8px;
+    position: absolute;
+    top: 50%;
+    left: 2rem;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    z-index: 0;
+  }
+  .story {
+    width: 50%;
+  }
+  .story p {
+    margin: 1rem 0;
   }
 }
-/*# sourceMappingURL=style.css.map */
