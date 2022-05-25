@@ -115,7 +115,7 @@ h5 {
 p {
   line-height: 1.7;
   letter-spacing: .5px;
-  font-size: 16px;
+  font-size: inherit;
   margin: 0;
   padding: 0;
 }
@@ -407,8 +407,11 @@ textarea {
             animation: slide 0.2s both ease-in-out;
   }
   .page {
-    background: url(../img/page-bg.png) bottom center no-repeat;
-    background-size: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background: url(../img/page-bg.png) center no-repeat;
+    background-size: cover;
     height: 100vh;
     max-height: 100vh;
     overflow: hidden;
@@ -430,9 +433,21 @@ textarea {
   }
   .line-b.line-l {
     left: 5%;
+    position: relative;
   }
   .line-b.line-r {
     right: 5%;
+  }
+  .home-btn {
+    background: url(../img/home-btn.png) center no-repeat;
+    background-size: 100%;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    left: 50%;
+    top: 4%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
   }
   .character-stand {
     position: absolute;
@@ -464,11 +479,29 @@ textarea {
     max-width: 55%;
     position: relative;
     z-index: 2;
-    margin: 5% auto;
+    margin: auto;
   }
   .name {
-    max-width: 250px;
     margin-left: -30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .name .name-img {
+    max-width: 250px;
+    -webkit-box-flex: 1;
+        -ms-flex: auto;
+            flex: auto;
+  }
+  .name .name-story {
+    max-width: 100px;
+    margin-left: 3rem;
+    cursor: pointer;
+  }
+  .words {
+    font-size: 22px;
+    margin-left: 2rem;
+    margin-top: 1.5rem;
   }
   .personal-value {
     width: 50%;
@@ -497,7 +530,7 @@ textarea {
   .personal-value ul li .value-bar {
     position: relative;
     width: 100%;
-    min-height: 160px;
+    min-height: 200px;
     margin: auto 0;
   }
   .personal-value ul li .value-bar::after {
@@ -507,28 +540,54 @@ textarea {
     left: 0;
     width: 100%;
     background-color: #121111;
+    background-position: top 0.5rem center;
+    background-size: 35%;
+    background-repeat: no-repeat;
   }
   .personal-value ul li .value-bar.first::after {
-    height: 160px;
+    height: 200px;
+    background-image: url(../img/1.svg);
   }
   .personal-value ul li .value-bar.sec::after {
-    height: 128px;
+    height: 160px;
+    background-image: url(../img/2.svg);
   }
   .personal-value ul li .value-bar.thrd::after {
-    height: 96px;
+    height: 120px;
+    background-image: url(../img/3.svg);
   }
   .personal-value ul li .value-bar.fourth::after {
-    height: 64px;
+    height: 80px;
+    background-image: url(../img/4.svg);
   }
   .personal-value ul li .value-bar.fifth::after {
-    height: 32px;
+    height: 40px;
+    background-image: url(../img/5.svg);
   }
   .story {
-    width: 50%;
+    width: 55%;
     margin: 3rem 0;
   }
   .story p {
     margin: 1rem 0;
+  }
+  .code {
+    background: url(../img/firecat-code.png) center no-repeat;
+    background-size: 100%;
+    width: 30px;
+    height: 58px;
+    position: absolute;
+    top: 5%;
+    right: 10%;
+  }
+  .sign {
+    background: url(../img/firecat-sign.svg) center no-repeat;
+    background-size: 100%;
+    width: 230px;
+    height: 150px;
+    position: absolute;
+    top: 10%;
+    right: 11%;
   }
   .arrow-b {
     width: 30px;
@@ -539,14 +598,96 @@ textarea {
     cursor: pointer;
   }
   .arrow-b.pre {
-    left: 6%;
+    left: 7%;
   }
   .arrow-b.next {
-    right: 6%;
+    right: 7%;
   }
   .arrow-b.next img {
     -webkit-transform: rotate(180deg);
             transform: rotate(180deg);
   }
+  .story-page {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    color: #ffffff;
+    max-height: 100vh;
+    overflow-y: scroll;
+  }
+  .story-page .overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(18, 17, 17, 0.95);
+  }
+  .story-page .story-title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 2rem;
+  }
+  .story-page .story-title h4 {
+    -webkit-box-flex: 1;
+        -ms-flex: auto;
+            flex: auto;
+  }
+  .story-page .story-title .font-size {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .story-page .story-title .font-size .size-btn {
+    background: url(../img/w-circle.png) center no-repeat;
+    background-size: 100%;
+    width: 30px;
+    height: 30px;
+    margin: 0 0.5rem;
+    color: #121111;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+  }
+  .story-page .story-content {
+    position: relative;
+    z-index: 100;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 3% 0;
+  }
+  .story-page .stock {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .story-page .stock::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: #121111;
+    opacity: 0;
+  }
+  .story-page .story-text.font-s {
+    font-size: 16px;
+  }
+  .story-page .story-text.font-m {
+    font-size: 18px;
+  }
+  .story-page .story-text.font-l {
+    font-size: 20px;
+  }
+  .story-page .story-text p {
+    white-space: pre-line;
+  }
+  .story-page .close {
+    background: url(../img/close.svg) center no-repeat;
+    background-size: cover;
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
 }
-/*# sourceMappingURL=style.css.map */
