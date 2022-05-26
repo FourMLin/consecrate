@@ -270,7 +270,7 @@ textarea {
     height: 0;
   }
   to {
-    height: 100%;
+    height: 90%;
   }
 }
 
@@ -279,7 +279,7 @@ textarea {
     height: 0;
   }
   to {
-    height: 100%;
+    height: 90%;
   }
 }
 
@@ -318,7 +318,7 @@ textarea {
     background: url(../img/consecrate-words.png) top center no-repeat;
     height: 100vh;
     max-height: 100vh;
-    background-size: 70%;
+    background-size: 60%;
     z-index: 0;
   }
   .character {
@@ -362,17 +362,29 @@ textarea {
     left: 0;
     z-index: 3;
   }
-  .character .ch-item:hover::after {
-    content: "";
-    position: relative;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
+  .character .ch-item .ch-hover {
+    height: 0;
+    overflow: hidden;
+    -webkit-transition: height 0.5s ease-out;
+    transition: height 0.5s ease-out;
+  }
+  .character .ch-item:hover .ch-hover {
     height: 100%;
-    z-index: 1;
+  }
+  .character .ch-item:hover .ch-hover .wall {
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 115px;
+    background-size: 100%;
+  }
+  .character .ch-item:hover .ch-hover .floor {
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    width: 115px;
+    height: 10%;
+    border-style: none solid solid;
   }
   .character .character-iceborg .ch-item-img {
     width: 130px;
@@ -389,9 +401,37 @@ textarea {
     width: 300px;
     bottom: 30px;
   }
+  .character .character-sweet:hover .ch-item-img::before {
+    background-image: url(../img/sweet_color.png);
+  }
+  .character .character-sweet:hover::before {
+    content: "";
+    border-width: 0px 109px 79px 0px;
+    border-color: transparent transparent #B62020;
+    -webkit-transform: skew(0deg);
+            transform: skew(0deg);
+  }
+  .character .character-sweet:hover::after {
+    background-image: url(../img/sweet_hover.png);
+  }
   .character .character-twilight .ch-item-img {
     width: 95px;
     bottom: 60px;
+  }
+  .character .character-twilight:hover .ch-item-img::before {
+    background-image: url(../img/twilight_color.png);
+  }
+  .character .character-twilight:hover::before {
+    content: "";
+    border-width: 0px 109px 79px 0px;
+    border-color: transparent transparent #63986B;
+    -webkit-transform: skew(0deg);
+            transform: skew(0deg);
+  }
+  .character .character-twilight:hover::after {
+    background-image: url(../img/twilight_hover.png);
+    -webkit-animation: slide 0.2s both ease-in-out;
+            animation: slide 0.2s both ease-in-out;
   }
   .character .character-firecat .ch-item-img {
     width: 190px;
@@ -400,11 +440,14 @@ textarea {
   .character .character-firecat:hover .ch-item-img::before {
     background-image: url(../img/firecat_color.png);
   }
-  .character .character-firecat:hover::after {
+  .character .character-firecat:hover .ch-hover .wall-firecat {
     background-image: url(../img/firecat_hover.png);
-    width: 420px;
-    -webkit-animation: slide 0.2s both ease-in-out;
-            animation: slide 0.2s both ease-in-out;
+  }
+  .character .character-firecat:hover .ch-hover .floor-firecat {
+    border-width: 0px 185px 109px 19px;
+    border-color: transparent transparent #FB8B3F;
+    -webkit-transform: skew(50deg);
+            transform: skew(50deg);
   }
   .page {
     display: -webkit-box;
@@ -449,6 +492,25 @@ textarea {
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
   }
+  .page-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    max-width: 950px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .character-single {
+    position: relative;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 45%;
+            flex: 1 0 45%;
+    max-width: 45%;
+  }
   .character-stand {
     position: absolute;
     background-repeat: no-repeat;
@@ -458,17 +520,22 @@ textarea {
   .character-bg {
     position: absolute;
     top: 0;
-    right: 20px;
+    right: 50%;
+    -webkit-transform: translateX(50%);
+            transform: translateX(50%);
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: right bottom 30%;
-    width: 800px;
+    width: 700px;
     height: 100%;
     -webkit-filter: grayscale(1);
             filter: grayscale(1);
     z-index: -1;
   }
   .data {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 55%;
+            flex: 1 0 55%;
     max-width: 55%;
     position: relative;
     z-index: 2;
@@ -479,17 +546,19 @@ textarea {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    position: relative;
   }
   .name .name-img {
-    max-width: 250px;
+    max-width: 360px;
     -webkit-box-flex: 1;
         -ms-flex: auto;
             flex: auto;
   }
   .name .name-story {
-    max-width: 100px;
-    margin: auto 0;
-    margin-left: 3rem;
+    margin: auto 0 0;
+    -webkit-transform: translateY(-10%);
+            transform: translateY(-10%);
+    max-width: 80px;
     cursor: pointer;
   }
   .words {
@@ -498,7 +567,7 @@ textarea {
     margin-top: 1.5rem;
   }
   .personal-value {
-    width: 50%;
+    width: 75%;
   }
   .personal-value ul {
     display: -webkit-box;
@@ -524,7 +593,7 @@ textarea {
   .personal-value ul li .value-bar {
     position: relative;
     width: 100%;
-    min-height: 200px;
+    min-height: 160px;
     margin: auto 0;
   }
   .personal-value ul li .value-bar::after {
@@ -539,28 +608,28 @@ textarea {
     background-repeat: no-repeat;
   }
   .personal-value ul li .value-bar.first::after {
-    height: 200px;
+    height: 160px;
     background-image: url(../img/1.svg);
   }
   .personal-value ul li .value-bar.sec::after {
-    height: 160px;
+    height: 128px;
     background-image: url(../img/2.svg);
   }
   .personal-value ul li .value-bar.thrd::after {
-    height: 120px;
+    height: 96px;
     background-image: url(../img/3.svg);
   }
   .personal-value ul li .value-bar.fourth::after {
-    height: 80px;
+    height: 64px;
     background-image: url(../img/4.svg);
   }
   .personal-value ul li .value-bar.fifth::after {
-    height: 40px;
+    height: 32px;
     background-image: url(../img/5.svg);
   }
   .story {
-    width: 55%;
-    margin: 3rem 0;
+    width: 85%;
+    margin: 2.5rem 0;
   }
   .story p {
     margin: 1rem 0;
@@ -573,7 +642,7 @@ textarea {
     background-position: center;
     background-repeat: no-repeat;
     width: 30px;
-    height: 58px;
+    height: 70px;
     position: absolute;
     top: 5%;
     right: 10%;
@@ -586,7 +655,7 @@ textarea {
     height: 150px;
     position: absolute;
     top: 10%;
-    right: 11%;
+    right: -2%;
   }
   .arrow-b {
     width: 30px;
@@ -601,10 +670,6 @@ textarea {
   }
   .arrow-b.next {
     right: 7%;
-  }
-  .arrow-b.next img {
-    -webkit-transform: rotate(180deg);
-            transform: rotate(180deg);
   }
   .story-page {
     position: fixed;
@@ -691,11 +756,11 @@ textarea {
   }
   .firecat .character-stand {
     top: 0;
-    right: 100px;
+    right: -16%;
     background-image: url(../img/firecat_color.png);
     background-size: 34%;
     background-position: right 180px bottom 50%;
-    width: 1000px;
+    width: 900px;
   }
   .firecat .character-bg {
     background-image: url(../img/firecat-bg.png);
@@ -708,11 +773,11 @@ textarea {
   }
   .iceborg .character-stand {
     top: 0;
-    right: 100px;
+    right: -10%;
     background-image: url(../img/iceborg_color.png);
     background-size: 34%;
     background-position: right 180px bottom 50%;
-    width: 800px;
+    width: 700px;
   }
   .iceborg .character-bg {
     background-image: url(../img/iceborg-bg.png);
@@ -725,28 +790,28 @@ textarea {
   }
   .blackbug .character-stand {
     top: 0;
-    right: 100px;
-    background-image: url(../img/blackbug_color.png);
+    right: -12%;
+    background-image: url(../img/BB_color.png);
     background-size: 34%;
     background-position: right 180px bottom 50%;
     width: 800px;
   }
   .blackbug .character-bg {
-    background-image: url(../img/blackbug-bg.png);
+    background-image: url(../img/BB-bg.png);
   }
   .blackbug .code {
-    background-image: url(../img/blackbug-code.png);
+    background-image: url(../img/BB-code.png);
   }
   .blackbug .sign {
-    background-image: url(../img/blackbug-sign.svg);
+    background-image: url(../img/BB-sign.svg);
   }
   .twilight .character-stand {
     top: 0;
-    right: 100px;
+    right: -10%;
     background-image: url(../img/twilight_color.png);
     background-size: 34%;
     background-position: right 180px bottom 50%;
-    width: 800px;
+    width: 440px;
   }
   .twilight .character-bg {
     background-image: url(../img/twilight-bg.png);
@@ -759,11 +824,11 @@ textarea {
   }
   .sweet .character-stand {
     top: 0;
-    right: 100px;
+    right: -50%;
     background-image: url(../img/sweet_color.png);
     background-size: 34%;
     background-position: right 180px bottom 50%;
-    width: 800px;
+    width: 1350px;
   }
   .sweet .character-bg {
     background-image: url(../img/sweet-bg.png);
@@ -775,3 +840,4 @@ textarea {
     background-image: url(../img/sweet-sign.svg);
   }
 }
+/*# sourceMappingURL=style.css.map */

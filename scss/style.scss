@@ -19,7 +19,7 @@
         background: url(../img/consecrate-words.png) top center no-repeat;
         height: 100vh;
         max-height: 100vh;
-        background-size: 70%;
+        background-size: 60%;
         z-index: 0;
     }
 
@@ -63,19 +63,36 @@
                 }
             }
 
+            .ch-hover {
+                height: 0;
+                overflow: hidden;
+                transition: height 0.5s ease-out;
+
+            }
+
             &:hover {
 
-                &::after {
-                    content: "";
-                    position: relative;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
+                .ch-hover {
                     height: 100%;
-                    z-index: 1;
+
+                    .wall {
+                        background-repeat: no-repeat;
+                        height: 100%;
+                        width: 115px;
+                        background-size: 100%;
+
+                    }
+
+                    .floor {
+                        position: absolute;
+                        z-index: -1;
+                        bottom: 0;
+                        left: 0;
+                        width: 115px;
+                        height: 10%;
+                        border-style: none solid solid;
+                    }
+
                 }
 
             }
@@ -106,6 +123,29 @@
                 bottom: 30px;
             }
 
+            &:hover {
+
+                .ch-item-img {
+
+                    &::before {
+                        background-image: url(../img/sweet_color.png);
+                    }
+                }
+
+                &::before {
+                    content: "";
+                    border-width: 0px 109px 79px 0px;
+                    border-color: transparent transparent #B62020;
+                    transform: skew(0deg);
+                }
+
+                &::after {
+                    background-image: url(../img/sweet_hover.png);
+
+                }
+
+            }
+
         }
 
         .character-twilight {
@@ -113,6 +153,29 @@
             .ch-item-img {
                 width: 95px;
                 bottom: 60px;
+            }
+
+            &:hover {
+
+                .ch-item-img {
+
+                    &::before {
+                        background-image: url(../img/twilight_color.png);
+                    }
+                }
+
+                &::before {
+                    content: "";
+                    border-width: 0px 109px 79px 0px;
+                    border-color: transparent transparent #63986B;
+                    transform: skew(0deg);
+                }
+
+                &::after {
+                    background-image: url(../img/twilight_hover.png);
+                    animation: slide 0.2s both ease-in-out;
+                }
+
             }
         }
 
@@ -133,13 +196,20 @@
                     }
                 }
 
-                &::after {
-                    background-image: url(../img/firecat_hover.png);
-                    width: 420px;
-                    animation: slide 0.2s both ease-in-out;
+                .ch-hover {
+
+                    .wall-firecat {
+                        background-image: url(../img/firecat_hover.png);
+
+                    }
+
+                    .floor-firecat {
+                        border-width: 0px 185px 109px 19px;
+                        border-color: transparent transparent #FB8B3F;
+                        transform: skew(50deg);
+                    }
 
                 }
-
 
             }
         }
@@ -183,7 +253,7 @@
         }
     }
 
-    .home-btn{
+    .home-btn {
         background: url(../img/home-btn.png) center no-repeat;
         background-size: 100%;
         width: 60px;
@@ -192,6 +262,20 @@
         left: 50%;
         top: 4%;
         transform: translateX(-50%);
+    }
+
+    .page-content {
+        display: flex;
+        flex-direction: row-reverse;
+        max-width: 950px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .character-single {
+        position: relative;
+        flex: 1 0 45%;
+        max-width: 45%;
     }
 
     .character-stand {
@@ -204,17 +288,19 @@
     .character-bg {
         position: absolute;
         top: 0;
-        right: 20px;
+        right: 50%;
+        transform: translateX(50%);
         background-repeat: no-repeat;
         background-size: 100%;
         background-position: right bottom 30%;
-        width: 800px;
+        width: 700px;
         height: 100%;
         filter: grayscale(1);
         z-index: -1;
     }
 
     .data {
+        flex: 1 0 55%;
         max-width: 55%;
         position: relative;
         z-index: 2;
@@ -224,28 +310,29 @@
     .name {
         margin-left: -30px;
         display: flex;
+        position: relative;
 
-        .name-img{
-            max-width: 250px;
+        .name-img {
+            max-width: 360px;
             flex: auto;
         }
 
-        .name-story{
-            max-width: 100px;
-            margin: auto 0;
-            margin-left: 3rem;
+        .name-story {
+            margin: auto 0 0;
+            transform: translateY(-10%);
+            max-width: 80px;
             cursor: pointer;
         }
     }
 
-    .words{
+    .words {
         font-size: 22px;
         margin-left: 2rem;
         margin-top: 1.5rem;
     }
 
     .personal-value {
-        width: 50%;
+        width: 75%;
 
         ul {
             display: flex;
@@ -266,7 +353,7 @@
                 .value-bar {
                     position: relative;
                     width: 100%;
-                    min-height: 200px;
+                    min-height: 160px;
                     margin: auto 0;
 
 
@@ -285,7 +372,7 @@
                     &.first {
 
                         &::after {
-                            height: 200px;
+                            height: 160px;
                             background-image: url(../img/1.svg);
                         }
 
@@ -293,28 +380,28 @@
 
                     &.sec {
                         &::after {
-                            height: 160px;
+                            height: 128px;
                             background-image: url(../img/2.svg);
                         }
                     }
 
                     &.thrd {
                         &::after {
-                            height: 120px;
+                            height: 96px;
                             background-image: url(../img/3.svg);
                         }
                     }
 
                     &.fourth {
                         &::after {
-                            height: 80px;
+                            height: 64px;
                             background-image: url(../img/4.svg);
                         }
                     }
 
                     &.fifth {
                         &::after {
-                            height: 40px;
+                            height: 32px;
                             background-image: url(../img/5.svg);
                         }
                     }
@@ -324,8 +411,8 @@
     }
 
     .story {
-        width: 55%;
-        margin: 3rem 0;
+        width: 85%;
+        margin: 2.5rem 0;
 
         p {
             margin: 1rem 0;
@@ -335,18 +422,18 @@
         }
     }
 
-    .code{
+    .code {
         background-size: 100%;
         background-position: center;
         background-repeat: no-repeat;
         width: 30px;
-        height: 58px;
+        height: 70px;
         position: absolute;
         top: 5%;
         right: 10%;
     }
 
-    .sign{
+    .sign {
         background-size: 100%;
         background-position: center;
         background-repeat: no-repeat;
@@ -354,7 +441,7 @@
         height: 150px;
         position: absolute;
         top: 10%;
-        right: 11%;
+        right: -2%;
     }
 
     .arrow-b {
@@ -371,13 +458,10 @@
         &.next {
             right: 7%;
 
-            img {
-                transform: rotate(180deg);
-            }
         }
     }
 
-    .story-page{
+    .story-page {
         position: fixed;
         width: 100%;
         height: 100%;
@@ -386,25 +470,25 @@
         max-height: 100vh;
         overflow-y: scroll;
 
-        .overlay{
+        .overlay {
             width: 100%;
             height: 100%;
             position: fixed;
             background-color: rgba($color: $black, $alpha: 0.95);
         }
 
-        .story-title{
+        .story-title {
             display: flex;
             margin-bottom: 2rem;
-            
-            h4{
+
+            h4 {
                 flex: auto;
             }
 
-            .font-size{
+            .font-size {
                 display: flex;
 
-                .size-btn{
+                .size-btn {
                     background: url(../img/w-circle.png) center no-repeat;
                     background-size: 100%;
                     width: 30px;
@@ -417,9 +501,9 @@
                 }
             }
         }
-        
 
-        .story-content{
+
+        .story-content {
             position: relative;
             z-index: 100;
             max-width: 600px;
@@ -427,12 +511,12 @@
             padding: 3% 0;
         }
 
-        .stock{
+        .stock {
             position: absolute;
             width: 100%;
             height: 100%;
 
-            &::after{
+            &::after {
                 content: "";
                 width: 100%;
                 height: 100%;
@@ -441,27 +525,27 @@
             }
         }
 
-        .story-text{
+        .story-text {
 
-            &.font-s{
+            &.font-s {
                 font-size: 16px;
             }
 
-            &.font-m{
+            &.font-m {
                 font-size: 18px;
             }
 
-            &.font-l{
+            &.font-l {
                 font-size: 20px;
             }
 
-            p{
+            p {
                 white-space: pre-line;
             }
 
         }
 
-        .close{
+        .close {
             background: url(../img/close.svg) center no-repeat;
             background-size: cover;
             position: fixed;
@@ -473,122 +557,122 @@
         }
     }
 
-    .firecat{
+    .firecat {
 
         .character-stand {
             top: 0;
-            right: 100px;
+            right: -16%;
             background-image: url(../img/firecat_color.png);
             background-size: 34%;
             background-position: right 180px bottom 50%;
-            width: 1000px;
+            width: 900px;
         }
-    
+
         .character-bg {
             background-image: url(../img/firecat-bg.png);
         }
 
-        .code{
+        .code {
             background-image: url(../img/firecat-code.png);
         }
-    
-        .sign{
+
+        .sign {
             background-image: url(../img/firecat-sign.svg);
         }
     }
 
-    .iceborg{
+    .iceborg {
 
         .character-stand {
             top: 0;
-            right: 100px;
+            right: -10%;
             background-image: url(../img/iceborg_color.png);
             background-size: 34%;
             background-position: right 180px bottom 50%;
-            width: 800px;
+            width: 700px;
         }
-    
+
         .character-bg {
             background-image: url(../img/iceborg-bg.png);
         }
 
-        .code{
+        .code {
             background-image: url(../img/iceborg-code.png);
         }
-    
-        .sign{
+
+        .sign {
             background-image: url(../img/firecat-sign.svg);
         }
     }
 
-    .blackbug{
+    .blackbug {
 
         .character-stand {
             top: 0;
-            right: 100px;
-            background-image: url(../img/blackbug_color.png);
+            right: -12%;
+            background-image: url(../img/BB_color.png);
             background-size: 34%;
             background-position: right 180px bottom 50%;
             width: 800px;
         }
-    
+
         .character-bg {
-            background-image: url(../img/blackbug-bg.png);
+            background-image: url(../img/BB-bg.png);
         }
 
-        .code{
-            background-image: url(../img/blackbug-code.png);
+        .code {
+            background-image: url(../img/BB-code.png);
         }
-    
-        .sign{
-            background-image: url(../img/blackbug-sign.svg);
+
+        .sign {
+            background-image: url(../img/BB-sign.svg);
         }
     }
 
-    .twilight{
+    .twilight {
 
         .character-stand {
             top: 0;
-            right: 100px;
+            right: -10%;
             background-image: url(../img/twilight_color.png);
             background-size: 34%;
             background-position: right 180px bottom 50%;
-            width: 800px;
+            width: 440px;
         }
-    
+
         .character-bg {
             background-image: url(../img/twilight-bg.png);
         }
 
-        .code{
+        .code {
             background-image: url(../img/twilight-code.png);
         }
-    
-        .sign{
+
+        .sign {
             background-image: url(../img/twilight-sign.svg);
         }
     }
 
-    .sweet{
+    .sweet {
 
         .character-stand {
             top: 0;
-            right: 100px;
+            right: -50%;
             background-image: url(../img/sweet_color.png);
             background-size: 34%;
             background-position: right 180px bottom 50%;
-            width: 800px;
+            width: 1350px;
         }
-    
+
         .character-bg {
             background-image: url(../img/sweet-bg.png);
         }
 
-        .code{
+        .code {
             background-image: url(../img/sweet-code.png);
         }
-    
-        .sign{
+
+        .sign {
             background-image: url(../img/sweet-sign.svg);
         }
     }
