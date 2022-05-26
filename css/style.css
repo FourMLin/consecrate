@@ -301,7 +301,7 @@ textarea {
   }
 }
 
-@media all and (min-width: 768px) {
+@media all and (min-width: 991px) {
   .home {
     background: url(../img/home-bg.png) center no-repeat;
     background-size: cover;
@@ -451,21 +451,14 @@ textarea {
   }
   .character-stand {
     position: absolute;
-    top: 0;
-    right: 100px;
-    background-image: url(../img/firecat_color.png);
     background-repeat: no-repeat;
-    background-size: 34%;
-    background-position: right 180px bottom 50%;
-    width: 1000px;
     height: 100%;
     z-index: -1;
   }
   .character-bg {
     position: absolute;
     top: 0;
-    right: 50px;
-    background-image: url(../img/firecat-bg.png);
+    right: 20px;
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: right bottom 30%;
@@ -495,6 +488,7 @@ textarea {
   }
   .name .name-story {
     max-width: 100px;
+    margin: auto 0;
     margin-left: 3rem;
     cursor: pointer;
   }
@@ -570,10 +564,14 @@ textarea {
   }
   .story p {
     margin: 1rem 0;
+    height: 7rem;
+    max-height: 7rem;
+    overflow: hidden;
   }
   .code {
-    background: url(../img/firecat-code.png) center no-repeat;
     background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
     width: 30px;
     height: 58px;
     position: absolute;
@@ -581,8 +579,9 @@ textarea {
     right: 10%;
   }
   .sign {
-    background: url(../img/firecat-sign.svg) center no-repeat;
     background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
     width: 230px;
     height: 150px;
     position: absolute;
@@ -689,5 +688,90 @@ textarea {
     width: 30px;
     height: 30px;
     cursor: pointer;
+  }
+  .firecat .character-stand {
+    top: 0;
+    right: 100px;
+    background-image: url(../img/firecat_color.png);
+    background-size: 34%;
+    background-position: right 180px bottom 50%;
+    width: 1000px;
+  }
+  .firecat .character-bg {
+    background-image: url(../img/firecat-bg.png);
+  }
+  .firecat .code {
+    background-image: url(../img/firecat-code.png);
+  }
+  .firecat .sign {
+    background-image: url(../img/firecat-sign.svg);
+  }
+  .iceborg .character-stand {
+    top: 0;
+    right: 100px;
+    background-image: url(../img/iceborg_color.png);
+    background-size: 34%;
+    background-position: right 180px bottom 50%;
+    width: 800px;
+  }
+  .iceborg .character-bg {
+    background-image: url(../img/iceborg-bg.png);
+  }
+  .iceborg .code {
+    background-image: url(../img/iceborg-code.png);
+  }
+  .iceborg .sign {
+    background-image: url(../img/firecat-sign.svg);
+  }
+  .blackbug .character-stand {
+    top: 0;
+    right: 100px;
+    background-image: url(../img/blackbug_color.png);
+    background-size: 34%;
+    background-position: right 180px bottom 50%;
+    width: 800px;
+  }
+  .blackbug .character-bg {
+    background-image: url(../img/blackbug-bg.png);
+  }
+  .blackbug .code {
+    background-image: url(../img/blackbug-code.png);
+  }
+  .blackbug .sign {
+    background-image: url(../img/blackbug-sign.svg);
+  }
+  .twilight .character-stand {
+    top: 0;
+    right: 100px;
+    background-image: url(../img/twilight_color.png);
+    background-size: 34%;
+    background-position: right 180px bottom 50%;
+    width: 800px;
+  }
+  .twilight .character-bg {
+    background-image: url(../img/twilight-bg.png);
+  }
+  .twilight .code {
+    background-image: url(../img/twilight-code.png);
+  }
+  .twilight .sign {
+    background-image: url(../img/twilight-sign.svg);
+  }
+  .sweet .character-stand {
+    top: 0;
+    right: 100px;
+    background-image: url(../img/sweet_color.png);
+    background-size: 34%;
+    background-position: right 180px bottom 50%;
+    width: 800px;
+  }
+  .sweet .character-bg {
+    background-image: url(../img/sweet-bg.png);
+  }
+  .sweet .code {
+    background-image: url(../img/sweet-code.png);
+  }
+  .sweet .sign {
+    background-image: url(../img/sweet-sign.svg);
   }
 }

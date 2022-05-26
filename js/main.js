@@ -26,12 +26,24 @@
 //     }
 // }
 
-$('.story-page').hide()
+$('.story-page').hide();
 
 $('.name-story').click(function (){
   $('.story-page').show()
-})
+});
 
 $('.close').click(function (){
   $('.story-page').hide()
-})
+});
+
+$('.l-btn').click(function (){
+  $('.story-text').addClass('font-l').removeClass('font-m font-s')
+});
+
+$('.m-btn').click(function (){
+  $('.story-text').addClass('font-m').removeClass('font-s font-l')
+});
+
+$('.s-btn').click(function (){
+  $('.story-text').addClass('font-s').removeClass('font-m font-l')
+});
