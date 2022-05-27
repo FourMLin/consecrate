@@ -46,3 +46,9 @@ $('.m-btn').click(function (){
 $('.s-btn').click(function (){
   $('.story-text').addClass('font-s').removeClass('font-m font-l')
 });
+
+$('.ch-item').hover(function (){
+  $('.ch-bg-item').addClass('off-screen')
+},function(){
+  $('.ch-bg-item').removeClass('off-screen')
+});

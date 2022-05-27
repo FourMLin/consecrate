@@ -265,21 +265,39 @@ textarea {
   src: url(../font/ToppanBunkyuMidashiGothicStdN-ExtraBold.otf);
 }
 
-@-webkit-keyframes slide-home {
+@-webkit-keyframes slide-home-off {
   from {
-    height: 0;
+    height: 100%;
   }
   to {
-    height: 86.5%;
+    height: 0%;
+  }
+}
+
+@keyframes slide-home-off {
+  from {
+    height: 100%;
+  }
+  to {
+    height: 0%;
+  }
+}
+
+@-webkit-keyframes slide-home {
+  from {
+    height: 0%;
+  }
+  to {
+    height: 100%;
   }
 }
 
 @keyframes slide-home {
   from {
-    height: 0;
+    height: 0%;
   }
   to {
-    height: 86.5%;
+    height: 100%;
   }
 }
 
@@ -336,13 +354,66 @@ textarea {
     background: url(../img/consecrate-words.png) top center no-repeat;
     height: 100vh;
     max-height: 100vh;
-    background-size: 60%;
+    background-size: 80%;
     z-index: 0;
+  }
+  .home-ch-bg {
+    max-width: 1200px;
+    min-width: 650px;
+    width: 53%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 50%;
+    right: 0;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    z-index: -1;
+  }
+  .home-ch-bg .ch-bg-item {
+    width: 100%;
+    max-width: 115px;
+    height: 0%;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-animation: slide-home 0.4s both ease-in-out;
+            animation: slide-home 0.4s both ease-in-out;
+  }
+  .home-ch-bg .ch-bg-item:nth-child(1), .home-ch-bg .ch-bg-item:nth-child(5) {
+    background-image: url(../img/home-ch-bg3.png);
+  }
+  .home-ch-bg .ch-bg-item:nth-child(2), .home-ch-bg .ch-bg-item:nth-child(4) {
+    background-image: url(../img/home-ch-bg2.png);
+  }
+  .home-ch-bg .ch-bg-item:nth-child(3) {
+    background-image: url(../img/home-ch-bg.png);
+  }
+  .home-ch-bg .ch-bg-item.off-screen {
+    -webkit-animation: slide-home-off 0.3s both ease-in-out;
+            animation: slide-home-off 0.3s both ease-in-out;
+  }
+  .home-ch-bg .ch-bg-item.off-screen:nth-child(1), .home-ch-bg .ch-bg-item.off-screen:nth-child(5) {
+    -webkit-animation-duration: 0.5s;
+            animation-duration: 0.5s;
+  }
+  .home-ch-bg .ch-bg-item.off-screen:nth-child(2), .home-ch-bg .ch-bg-item.off-screen:nth-child(4) {
+    -webkit-animation-duration: 0.35s;
+            animation-duration: 0.35s;
+  }
+  .home-ch-bg .ch-bg-item.off-screen:nth-child(3) {
+    -webkit-animation-duration: 0.2s;
+            animation-duration: 0.2s;
   }
   .character {
     max-width: 1200px;
     min-width: 650px;
-    width: 50%;
+    width: 53%;
     position: absolute;
     bottom: 0;
     top: 0;
@@ -357,7 +428,7 @@ textarea {
   .character .ch-item {
     width: 100%;
     height: 100%;
-    background-position: center;
+    background-position: top center;
     background-repeat: no-repeat;
     background-size: contain;
     position: relative;
@@ -403,6 +474,7 @@ textarea {
     height: 100%;
     width: 115px;
     background-size: 100%;
+    margin: 0 auto;
   }
   .character .ch-item:hover .ch-hover-floor {
     -webkit-animation: slide-flooer .3s both ease-in-out;
@@ -414,7 +486,7 @@ textarea {
   .character .ch-item:hover .ch-hover-floor .floor {
     position: absolute;
     z-index: -1;
-    left: 0;
+    left: 50%;
     width: 115px;
     height: 100%;
     -webkit-transform-origin: top;
@@ -437,8 +509,8 @@ textarea {
   }
   .character .character-iceborg:hover .floor {
     background-color: #2589C8;
-    -webkit-transform: rotateX(399deg) skewX(-34deg);
-            transform: rotateX(399deg) skewX(-34deg);
+    -webkit-transform: rotateX(399deg) skewX(-34deg) translateX(-50%);
+            transform: rotateX(399deg) skewX(-34deg) translateX(-50%);
   }
   .character .character-blackbug {
     z-index: 1;
@@ -455,8 +527,8 @@ textarea {
   }
   .character .character-blackbug:hover .floor {
     background-color: #FBCD13;
-    -webkit-transform: rotateX(399deg) skewX(-20deg);
-            transform: rotateX(399deg) skewX(-20deg);
+    -webkit-transform: rotateX(399deg) skewX(-20deg) translateX(-50%);
+            transform: rotateX(399deg) skewX(-20deg) translateX(-50%);
   }
   .character .character-sweet {
     z-index: 2;
@@ -473,8 +545,8 @@ textarea {
   }
   .character .character-sweet:hover .floor {
     background-color: #B62020;
-    -webkit-transform: rotateX(401deg) skewX(5deg);
-            transform: rotateX(401deg) skewX(5deg);
+    -webkit-transform: rotateX(401deg) skewX(5deg) translateX(-50%);
+            transform: rotateX(401deg) skewX(5deg) translateX(-50%);
   }
   .character .character-twilight {
     z-index: 1;
@@ -491,8 +563,8 @@ textarea {
   }
   .character .character-twilight:hover .floor {
     background-color: #63986B;
-    -webkit-transform: rotateX(399deg) skewX(20deg);
-            transform: rotateX(399deg) skewX(20deg);
+    -webkit-transform: rotateX(399deg) skewX(20deg) translateX(-50%);
+            transform: rotateX(399deg) skewX(20deg) translateX(-50%);
   }
   .character .character-firecat {
     z-index: 0;
@@ -509,8 +581,8 @@ textarea {
   }
   .character .character-firecat:hover .floor {
     background-color: #FB8B3F;
-    -webkit-transform: rotateX(399deg) skewX(34deg);
-            transform: rotateX(399deg) skewX(34deg);
+    -webkit-transform: rotateX(399deg) skewX(34deg) translateX(-50%);
+            transform: rotateX(399deg) skewX(34deg) translateX(-50%);
   }
   .page {
     display: -webkit-box;
@@ -597,9 +669,9 @@ textarea {
   }
   .data {
     -webkit-box-flex: 1;
-        -ms-flex: 1 0 50%;
-            flex: 1 0 50%;
-    max-width: 50%;
+        -ms-flex: 1 0 40%;
+            flex: 1 0 40%;
+    max-width: 40%;
     position: relative;
     z-index: 2;
     margin: auto;
@@ -628,7 +700,7 @@ textarea {
     margin-top: 1.5rem;
   }
   .story {
-    width: 85%;
+    width: 100%;
     margin: 2.5rem 0;
   }
   .story p {

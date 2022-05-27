@@ -1,12 +1,23 @@
-@keyframes slide-home {
+@keyframes slide-home-off {
     from {
-        height: 0;
+        height: 100%;
     }
 
     to {
-        height: 86.5%;
+        height: 0%;
     }
 }
+
+@keyframes slide-home {
+    from {
+        height: 0%;
+    }
+
+    to {
+        height: 100%;
+    }
+}
+
 
 @keyframes slide-flooer {
     from {
