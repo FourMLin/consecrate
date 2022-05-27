@@ -372,8 +372,8 @@
     }
 
     .data {
-        flex: 1 0 55%;
-        max-width: 55%;
+        flex: 1 0 50%;
+        max-width: 50%;
         position: relative;
         z-index: 2;
         margin: auto;
@@ -389,12 +389,13 @@
             flex: auto;
         }
 
-        .name-story {
-            margin: auto 0 0;
-            transform: translateY(-10%);
-            max-width: 80px;
-            cursor: pointer;
-        }
+
+    }
+
+    .name-story {
+        margin: auto 0 0;
+        max-width: 80px;
+        cursor: pointer;
     }
 
     .words {
@@ -403,84 +404,6 @@
         margin-top: 1.5rem;
     }
 
-    .personal-value {
-        width: 75%;
-
-        ul {
-            display: flex;
-            justify-content: space-between;
-
-            li {
-                margin-bottom: 1rem;
-                flex: 1 0 20%;
-                max-width: 20%;
-                padding: 0 4px;
-
-                .value-title {
-                    margin: auto 0;
-                    text-align: center;
-                    font-size: 14px;
-                }
-
-                .value-bar {
-                    position: relative;
-                    width: 100%;
-                    min-height: 160px;
-                    margin: auto 0;
-
-
-                    &::after {
-                        content: "";
-                        position: absolute;
-                        bottom: 0;
-                        left: 0;
-                        width: 100%;
-                        background-color: $black;
-                        background-position: top 0.5rem center;
-                        background-size: 35%;
-                        background-repeat: no-repeat;
-                    }
-
-                    &.first {
-
-                        &::after {
-                            height: 160px;
-                            background-image: url(../img/1.svg);
-                        }
-
-                    }
-
-                    &.sec {
-                        &::after {
-                            height: 128px;
-                            background-image: url(../img/2.svg);
-                        }
-                    }
-
-                    &.thrd {
-                        &::after {
-                            height: 96px;
-                            background-image: url(../img/3.svg);
-                        }
-                    }
-
-                    &.fourth {
-                        &::after {
-                            height: 64px;
-                            background-image: url(../img/4.svg);
-                        }
-                    }
-
-                    &.fifth {
-                        &::after {
-                            height: 32px;
-                            background-image: url(../img/5.svg);
-                        }
-                    }
-                }
-            }
-        }
-    }
 
     .story {
         width: 85%;
@@ -488,9 +411,6 @@
 
         p {
             margin: 1rem 0;
-            height: 7rem;
-            max-height: 7rem;
-            overflow: hidden;
         }
     }
 
@@ -541,6 +461,14 @@
         color: $white;
         max-height: 100vh;
         overflow-y: scroll;
+        opacity: 0;
+        display: none;
+
+        &.active{
+            display: block;
+            opacity: 1;
+        }
+        
 
         .overlay {
             width: 100%;

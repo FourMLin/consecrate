@@ -26,14 +26,13 @@
 //     }
 // }
 
-$('.story-page').hide();
 
 $('.name-story').click(function (){
-  $('.story-page').show()
+  $('.story-page').addClass('active')
 });
 
 $('.close').click(function (){
-  $('.story-page').hide()
+  $('.story-page').removeClass('active')
 });
 
 $('.l-btn').click(function (){
