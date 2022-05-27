@@ -1,10 +1,20 @@
-@keyframes slide {
+@keyframes slide-home {
     from {
         height: 0;
     }
 
     to {
-        height: 90%;
+        height: 86.5%;
+    }
+}
+
+@keyframes slide-flooer {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: 13.5%;
     }
 }
 

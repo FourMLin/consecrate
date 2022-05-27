@@ -66,14 +66,21 @@
             .ch-hover {
                 height: 0;
                 overflow: hidden;
-                transition: height 0.5s ease-out;
+                transition: height 0.5s ease-in-out;
+                perspective: 141px;
+            }
 
+            .ch-hover-floor{
+                height: 0;
+                overflow: hidden;
+                perspective: 141px;
             }
 
             &:hover {
 
                 .ch-hover {
-                    height: 100%;
+                    height: 86.5%;
+                    overflow: visible;
 
                     .wall {
                         background-repeat: no-repeat;
@@ -83,35 +90,95 @@
 
                     }
 
+                }
+
+                .ch-hover-floor{
+                    animation: slide-flooer .3s both ease-in-out;
+                    animation-delay: 0.5s;
+                    overflow: visible;
+
                     .floor {
                         position: absolute;
                         z-index: -1;
-                        bottom: 0;
                         left: 0;
                         width: 115px;
-                        height: 10%;
-                        border-style: none solid solid;
+                        height: 100%;
+                        transform-origin: top;
+                        transform-style: preserve-3d;
                     }
 
                 }
+
 
             }
         }
 
         .character-iceborg {
+            z-index: 0;
 
             .ch-item-img {
                 width: 130px;
                 bottom: 80px;
             }
 
+            &:hover {
+
+                .ch-item-img {
+
+                    &::before {
+                        background-image: url(../img/iceborg_color.png);
+                    }
+                }
+
+                .ch-hover {
+
+                    .wall {
+                        background-image: url(../img/iceborg_hover.png);
+
+                    }
+
+                }
+
+                .floor {
+                    background-color: #2589C8;
+                    transform: rotateX(399deg) skewX(-34deg);
+                }
+
+            }
+
         }
 
         .character-blackbug {
+            z-index: 1;
 
             .ch-item-img {
                 width: 150px;
                 bottom: 70px;
+            }
+
+            &:hover {
+
+                .ch-item-img {
+
+                    &::before {
+                        background-image: url(../img/BB_color.png);
+                    }
+                }
+
+                .ch-hover {
+
+                    .wall {
+                        background-image: url(../img/BB_hover.png);
+
+                    }
+
+                }
+
+                .floor {
+                    background-color: #FBCD13;
+                    transform: rotateX(399deg) skewX(-20deg);
+                }
+
             }
         }
 
@@ -132,16 +199,18 @@
                     }
                 }
 
-                &::before {
-                    content: "";
-                    border-width: 0px 109px 79px 0px;
-                    border-color: transparent transparent #B62020;
-                    transform: skew(0deg);
+                .ch-hover {
+
+                    .wall {
+                        background-image: url(../img/sweet_hover.png);
+
+                    }
+
                 }
 
-                &::after {
-                    background-image: url(../img/sweet_hover.png);
-
+                .floor {
+                    background-color: #B62020;
+                    transform: rotateX(401deg) skewX(5deg);
                 }
 
             }
@@ -149,6 +218,7 @@
         }
 
         .character-twilight {
+            z-index: 1;
 
             .ch-item-img {
                 width: 95px;
@@ -164,22 +234,25 @@
                     }
                 }
 
-                &::before {
-                    content: "";
-                    border-width: 0px 109px 79px 0px;
-                    border-color: transparent transparent #63986B;
-                    transform: skew(0deg);
+                .ch-hover {
+
+                    .wall {
+                        background-image: url(../img/twilight_hover.png);
+
+                    }
+
                 }
 
-                &::after {
-                    background-image: url(../img/twilight_hover.png);
-                    animation: slide 0.2s both ease-in-out;
+                .floor {
+                    background-color: #63986B;
+                    transform: rotateX(399deg) skewX(20deg);
                 }
 
             }
         }
 
         .character-firecat {
+            z-index: 0;
 
             .ch-item-img {
                 width: 190px;
@@ -198,17 +271,16 @@
 
                 .ch-hover {
 
-                    .wall-firecat {
+                    .wall {
                         background-image: url(../img/firecat_hover.png);
 
                     }
 
-                    .floor-firecat {
-                        border-width: 0px 185px 109px 19px;
-                        border-color: transparent transparent #FB8B3F;
-                        transform: skew(50deg);
-                    }
+                }
 
+                .floor {
+                    background-color: #FB8B3F;
+                    transform: rotateX(399deg) skewX(34deg);
                 }
 
             }
