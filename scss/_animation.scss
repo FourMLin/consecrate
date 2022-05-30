@@ -29,6 +29,20 @@
     }
 }
 
+@media all and (max-width:991px){
+
+    @keyframes slide-flooer {
+        from {
+            height: 0;
+        }
+    
+        to {
+            height: 100%;
+        }
+    }
+    
+}
+
 @keyframes transport {
     from {
         opacity: 0;
