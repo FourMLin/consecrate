@@ -1,18 +1,7 @@
-@font-face {
-    font-family: 'LucidaGrande';
-    src: local("LucidaGrande") ， url('..font//LucidaGrande.woff') format("woff"),
-        url('../font/LucidaGrande.ttf') format("opentype"),
-        url('../font/Helvetica.eot') format("embedded-opentype");
-}
 
 @font-face {
-    font-family: 'BowlbyOneSC';
-    src: url(../font/BowlbyOneSC-Regular.ttf);
-}
-
-@font-face {
-    font-family: 'ToppanBunkyuMidashiGothicStdN';
-    src: url(../font/ToppanBunkyuMidashiGothicStdN-ExtraBold.otf);
+    font-family: 'Noto Sans TC';
+    src: url(../font/NotoSansTC-Regular.otf);
 }
 
 $pc-media:1099px;

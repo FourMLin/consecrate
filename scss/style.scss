@@ -2,9 +2,17 @@
 @import '_variables';
 @import '_animation';
 
+$iceborg:#2589C8;
+$blackbug:#FBCD13;
+$sweete:#B62020;
+$twilight:#63986B;
+$firecat:#FB8B3F;
+
+
 
 .home {
     background: url(../img/home-bg.png) center no-repeat;
+    background-color: $black;
     background-size: cover;
     height: 100vh;
     max-height: 100vh;
@@ -12,25 +20,41 @@
     position: relative;
     animation: transport 0.5s both ease-in-out;
     animation-delay: 0.5s;
+
+    &::after{
+        content: "";
+        background: url(../img/page-bg.png) bottom left no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
 }
 
 .home-words {
-    background: url(../img/consecrate-words.png) top center no-repeat;
+    background: url(../img/consecrate-words.png) top 6% center no-repeat;
     height: 100vh;
     max-height: 100vh;
     background-size: 80%;
     z-index: 0;
 
+    &.on-hover{
+        background: url(../img/consecrate-words-h.png) top 6% center no-repeat;
+    }
+
     @media all and (max-width:991px) {
         background: url(../img/consecrate-words-m.png) top right no-repeat;
-        background-size: 58%;
+        background-size: 50%;
     }
 }
 
 .home-ch-bg {
     max-width: 1200px;
     min-width: 650px;
-    width: 53%;
+    width: 50%;
     display: flex;
     position: absolute;
     bottom: 0;
@@ -43,12 +67,13 @@
 
     .ch-bg-item {
         width: 100%;
-        max-width: 115px;
+        max-width: 125px;
         height: 0%;
         background-position: top center;
         background-repeat: no-repeat;
         background-size: cover;
         animation: slide-home 0.4s both ease-in-out;
+        transition: .3s ease-out;
 
         &:nth-child(1),
         &:nth-child(5) {
@@ -92,15 +117,56 @@
         transform: translateX(0%);
         display: block;
 
-        &.iceborg{
+        .ch-bg-item {
+            height: 100%;
+            animation: unset;
+
+            &.off-screen {
+                animation: none;
+            }
+        }
+
+        &.iceborg {
 
             .ch-bg-item {
-                background: #2589C8;
+                background: $iceborg;
             }
 
         }
 
-        
+        &.blackbug {
+
+            .ch-bg-item {
+                background: $blackbug;
+            }
+
+        }
+
+        &.sweet {
+
+            .ch-bg-item {
+                background: $sweete;
+            }
+
+        }
+
+        &.twilight {
+
+            .ch-bg-item {
+                background: $twilight;
+            }
+
+        }
+
+        &.firecat {
+
+            .ch-bg-item {
+                background: $firecat;
+            }
+
+        }
+
+
     }
 
 }
@@ -108,7 +174,7 @@
 .character {
     max-width: 1200px;
     min-width: 650px;
-    width: 53%;
+    width: 50%;
     position: absolute;
     bottom: 0;
     top: 0;
@@ -156,87 +222,173 @@
             height: 0;
             overflow: hidden;
             perspective: 141px;
+
+            .floor {
+                transition: .3s ease-out;
+            }
         }
 
-        &:hover {
+        .m-next-ch {
+            display: none;
+            z-index: 5;
+        }
 
-            .ch-hover {
-                height: 86.5%;
-                overflow: visible;
+        @media all and (min-width:991px) {
 
-                .wall {
-                    background-repeat: no-repeat;
-                    height: 100%;
-                    width: 115px;
-                    background-size: 100%;
-                    margin: 0 auto;
+            &:hover {
+
+                .ch-hover {
+                    height: 86.5%;
+                    overflow: visible;
+
+                    .wall {
+                        background-repeat: no-repeat;
+                        height: 100%;
+                        width: 125px;
+                        background-size: 100%;
+                        margin: 0 auto;
+
+                    }
+
+                }
+
+                .ch-hover-floor {
+                    animation: slide-flooer .3s both ease-in-out;
+                    animation-delay: 0.5s;
+                    overflow: visible;
+
+                    .floor {
+                        position: absolute;
+                        z-index: -1;
+                        left: 50%;
+                        width: 125px;
+                        height: 100%;
+                        transform-origin: top;
+                        transform-style: preserve-3d;
+                    }
 
                 }
 
             }
 
-            .ch-hover-floor {
-                animation: slide-flooer .3s both ease-in-out;
-                animation-delay: 0.5s;
-                overflow: visible;
-
-                .floor {
-                    position: absolute;
-                    z-index: -1;
-                    left: 50%;
-                    width: 115px;
-                    height: 100%;
-                    transform-origin: top;
-                    transform-style: preserve-3d;
-                }
-
-            }
-
         }
+
 
     }
 
     @media all and (max-width:991px) {
-        max-width: 58%;
-        min-width: 58%;
-        width: 58%;
+        max-width: 50%;
+        min-width: 50%;
+        width: 50%;
+        margin: 0;
 
-        .ch-item{
+        .ch-item {
             display: none;
 
-            &.active{
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            .ch-item-img {
+                left: 60%;
+            }
+
+            .m-ch-intro {
+                position: absolute;
+                right: -50%;
+                bottom: 28%;
+                background: url(../img/home-ch-intro.png) center no-repeat;
+                background-size: 100%;
+                width: 152px;
+                height: 82px;
+                z-index: 2;
+            }
+
+            &.active {
                 display: block;
 
-                .ch-item-img{
-                    left: 15%;
-                }
-
-                .ch-hover-floor{
+                .ch-hover-floor {
                     height: 100%;
                     overflow: visible;
-                    animation: slide-flooer .3s both ease-in-out;
+                    animation: unset;
 
-                    .floor{
+                    .floor {
                         transform: rotateX(506deg) skewX(45deg) translateX(-50%);
                         position: absolute;
                         z-index: -1;
                         left: 0%;
                         width: 640px;
                         height: 100%;
-                        transform-origin: top;
                         transform-style: preserve-3d;
                         transform-origin: bottom left;
-                        
                     }
 
                 }
 
-                &.character-iceborg{
+                &.character-iceborg {
 
-                    .floor{
-                        background-color: #2589C8;
+                    .floor {
+                        background-color: $iceborg;
                     }
-                    
+
+                }
+
+                &.character-blackbug {
+
+                    .floor {
+                        background-color: $blackbug;
+                    }
+
+                }
+
+                &.character-sweet {
+
+                    .floor {
+                        background-color: $sweete;
+                    }
+
+                }
+
+                &.character-twilight {
+
+                    .floor {
+                        background-color: $twilight;
+                    }
+
+                }
+
+                &.character-firecat {
+
+                    .floor {
+                        background-color: $firecat;
+                    }
+
+                }
+            }
+
+            .m-next-ch {
+                display: block;
+                position: absolute;
+                right: -60%;
+                bottom: 12%;
+                transform: translateY(50%);
+                opacity: 0.85;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    background: url(../img/arrow-circle.png) center no-repeat;
+                    background-size: 100%;
+                    right: -40px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 30px;
+                    height: 30px;
                 }
             }
         }
@@ -250,30 +402,51 @@
             bottom: 80px;
         }
 
-        &:hover {
+        @media all and (min-width:991px) {
 
-            .ch-item-img {
+            &:hover {
 
-                &::before {
-                    background-image: url(../img/iceborg_color.png);
-                }
-            }
+                .ch-item-img {
 
-            .ch-hover {
-
-                .wall {
-                    background-image: url(../img/iceborg_hover.png);
-
+                    &::before {
+                        background-image: url(../img/iceborg_color.png);
+                    }
                 }
 
-            }
+                .ch-hover {
 
-            .floor {
-                background-color: #2589C8;
-                transform: rotateX(399deg) skewX(-34deg) translateX(-50%);
+                    .wall {
+                        background-image: url(../img/iceborg_hover.png);
+
+                    }
+
+                }
+
+                .floor {
+                    background-color: $iceborg;
+                    transform: rotateX(399deg) skewX(-34deg) translateX(-50%);
+                }
+
             }
 
         }
+
+
+        @media all and (max-width:991px) {
+
+            &::after {
+                background: url(../img/iceborg_name.png) top 5% left 11% no-repeat;
+                background-size: 46%;
+            }
+
+            .ch-item-img {
+                width: 190px;
+                bottom: 22px;
+            }
+
+        }
+
+
 
     }
 
@@ -285,27 +458,45 @@
             bottom: 70px;
         }
 
-        &:hover {
+        @media all and (min-width:991px) {
+
+            &:hover {
+
+                .ch-item-img {
+
+                    &::before {
+                        background-image: url(../img/BB_color.png);
+                    }
+                }
+
+                .ch-hover {
+
+                    .wall {
+                        background-image: url(../img/BB_hover.png);
+
+                    }
+
+                }
+
+                .floor {
+                    background-color: $blackbug;
+                    transform: rotateX(399deg) skewX(-20deg) translateX(-50%);
+                }
+
+            }
+
+        }
+
+        @media all and (max-width:991px) {
+
+            &::after {
+                background: url(../img/home-BB-name.png) top 5% left 11% no-repeat;
+                background-size: 46%;
+            }
 
             .ch-item-img {
-
-                &::before {
-                    background-image: url(../img/BB_color.png);
-                }
-            }
-
-            .ch-hover {
-
-                .wall {
-                    background-image: url(../img/BB_hover.png);
-
-                }
-
-            }
-
-            .floor {
-                background-color: #FBCD13;
-                transform: rotateX(399deg) skewX(-20deg) translateX(-50%);
+                width: 223px;
+                bottom: 12px;
             }
 
         }
@@ -319,27 +510,44 @@
             bottom: 30px;
         }
 
-        &:hover {
+        @media all and (min-width:991px) {
+            &:hover {
+
+                .ch-item-img {
+
+                    &::before {
+                        background-image: url(../img/sweet_color.png);
+                    }
+                }
+
+                .ch-hover {
+
+                    .wall {
+                        background-image: url(../img/sweet_hover.png);
+
+                    }
+
+                }
+
+                .floor {
+                    background-color: $sweete;
+                    transform: rotateX(401deg) skewX(5deg) translateX(-50%);
+                }
+
+            }
+        }
+
+
+        @media all and (max-width:991px) {
+
+            &::after {
+                background: url(../img/home-sweet-name.png) top 5% left 11% no-repeat;
+                background-size: 46%;
+            }
 
             .ch-item-img {
-
-                &::before {
-                    background-image: url(../img/sweet_color.png);
-                }
-            }
-
-            .ch-hover {
-
-                .wall {
-                    background-image: url(../img/sweet_hover.png);
-
-                }
-
-            }
-
-            .floor {
-                background-color: #B62020;
-                transform: rotateX(401deg) skewX(5deg) translateX(-50%);
+                width: 364px;
+                bottom: 12px;
             }
 
         }
@@ -354,30 +562,49 @@
             bottom: 60px;
         }
 
-        &:hover {
+        @media all and (min-width:991px) {
 
-            .ch-item-img {
+            &:hover {
 
-                &::before {
-                    background-image: url(../img/twilight_color.png);
-                }
-            }
+                .ch-item-img {
 
-            .ch-hover {
-
-                .wall {
-                    background-image: url(../img/twilight_hover.png);
-
+                    &::before {
+                        background-image: url(../img/twilight_color.png);
+                    }
                 }
 
-            }
+                .ch-hover {
 
-            .floor {
-                background-color: #63986B;
-                transform: rotateX(399deg) skewX(20deg) translateX(-50%);
+                    .wall {
+                        background-image: url(../img/twilight_hover.png);
+
+                    }
+
+                }
+
+                .floor {
+                    background-color: $twilight;
+                    transform: rotateX(399deg) skewX(20deg) translateX(-50%);
+                }
+
             }
 
         }
+
+        @media all and (max-width:991px) {
+
+            &::after {
+                background: url(../img/home-twilight-name.png) top 5% left 11% no-repeat;
+                background-size: 46%;
+            }
+
+            .ch-item-img {
+                width: 143px;
+                bottom: 12px;
+            }
+
+        }
+
     }
 
     .character-firecat {
@@ -388,31 +615,49 @@
             bottom: 55px;
         }
 
+        @media all and (min-width:991px) {
 
-        &:hover {
+            &:hover {
 
-            .ch-item-img {
+                .ch-item-img {
 
-                &::before {
-                    background-image: url(../img/firecat_color.png);
-                }
-            }
-
-            .ch-hover {
-
-                .wall {
-                    background-image: url(../img/firecat_hover.png);
-
+                    &::before {
+                        background-image: url(../img/firecat_color.png);
+                    }
                 }
 
-            }
+                .ch-hover {
 
-            .floor {
-                background-color: #FB8B3F;
-                transform: rotateX(399deg) skewX(34deg) translateX(-50%);
+                    .wall {
+                        background-image: url(../img/firecat_hover.png);
+
+                    }
+
+                }
+
+                .floor {
+                    background-color: $firecat;
+                    transform: rotateX(399deg) skewX(34deg) translateX(-50%);
+                }
+
             }
 
         }
+
+        @media all and (max-width:991px) {
+
+            &::after {
+                background: url(../img/home-firecat-name.png) top 5% left 11% no-repeat;
+                background-size: 46%;
+            }
+
+            .ch-item-img {
+                width: 261px;
+                bottom: 12px;
+            }
+
+        }
+
     }
 }
 
@@ -463,6 +708,13 @@
     left: 50%;
     top: 4%;
     transform: translateX(-50%);
+
+    @media all and (max-width:991px) {
+        width: 70px;
+        height: 70px;
+        top: 5%;
+        transform: translateX(10%);
+    }
 }
 
 .page-content {
@@ -476,6 +728,8 @@
     @media all and (max-width:991px) {
         display: block;
         flex-direction: unset;
+        margin: 5% auto auto;
+        max-width: 60%;
     }
 }
 
@@ -597,14 +851,14 @@
     background-position: center;
     background-repeat: no-repeat;
     width: 230px;
-    height: 150px;
+    height: 200px;
     position: absolute;
     top: 10%;
     right: -2%;
 
     @media all and (max-width:991px) {
-        width: 180px;
-        right: 5%;
+        width: 138px;
+        right: 7%;
     }
 }
 
@@ -616,6 +870,8 @@
     transform: translateY(-50%);
     cursor: pointer;
     z-index: 97;
+    opacity: .8;
+    filter: grayscale(1);
 
     @media all and (max-width:991px) {
         top: 93%;
@@ -640,6 +896,8 @@
     }
 
     &:hover {
+        opacity: 1;
+        filter: grayscale(0);
 
         .m-chs {
             transform: rotate(10deg);
@@ -685,6 +943,7 @@
             display: block;
             background-color: #000;
             position: fixed;
+            width: 100%;
         }
 
 
@@ -694,6 +953,7 @@
 
         .font-size {
             display: flex;
+            margin-top: 1rem;
 
             .size-btn {
                 background: url(../img/w-circle.png) center no-repeat;
@@ -705,6 +965,10 @@
                 font-weight: bold;
                 cursor: pointer;
                 text-align: center;
+
+                &:first-child{
+                    margin-left: 0;
+                }
             }
         }
     }
@@ -721,7 +985,7 @@
 
     .stock {
         position: absolute;
-        width: 100%;
+        max-width: 600px;
         height: 100%;
 
         &::after {
@@ -833,7 +1097,7 @@
     }
 
     .sign {
-        background-image: url(../img/firecat-sign.svg);
+        background-image: url(../img/iceborg-sign.svg);
     }
 
     @media all and (max-width:991px) {

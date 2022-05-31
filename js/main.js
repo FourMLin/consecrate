@@ -48,7 +48,38 @@ $('.s-btn').click(function (){
 });
 
 $('.ch-item').hover(function (){
-  $('.ch-bg-item').addClass('off-screen')
+  $('.ch-bg-item').addClass('off-screen');
+  
 },function(){
   $('.ch-bg-item').removeClass('off-screen')
+});
+
+$('.character-iceborg .m-next-ch').click(function (){
+  $('.character-blackbug').addClass('active');
+  $(this).parent('.ch-item').removeClass('active');
+  $('.home-ch-bg').addClass('blackbug').removeClass('iceborg');
+});
+
+$('.character-blackbug .m-next-ch').click(function (){
+  $('.character-sweet').addClass('active');
+  $(this).parent('.ch-item').removeClass('active');
+  $('.home-ch-bg').addClass('sweet').removeClass('blackbug');
+});
+
+$('.character-sweet .m-next-ch').click(function (){
+  $('.character-twilight').addClass('active');
+  $(this).parent('.ch-item').removeClass('active');
+  $('.home-ch-bg').addClass('twilight').removeClass('sweet');
+});
+
+$('.character-twilight .m-next-ch').click(function (){
+  $('.character-firecat').addClass('active');
+  $(this).parent('.ch-item').removeClass('active');
+  $('.home-ch-bg').addClass('firecat').removeClass('twilight');
+});
+
+$('.character-firecat .m-next-ch').click(function (){
+  $('.character-iceborg').addClass('active');
+  $(this).parent('.ch-item').removeClass('active');
+  $('.home-ch-bg').addClass('iceborg').removeClass('firecat');
 });
