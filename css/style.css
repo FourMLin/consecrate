@@ -1211,6 +1211,14 @@ textarea {
           flex: auto;
 }
 
+.story-page .story-title h4 a {
+  color: #ffffff;
+  font-size: 14px;
+  text-decoration: underline;
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+
 .story-page .story-title .font-size {
   display: -webkit-box;
   display: -ms-flexbox;

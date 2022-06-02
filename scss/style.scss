@@ -967,6 +967,14 @@ $firecat:#FB8B3F;
 
         h4 {
             flex: auto;
+
+            a{
+                color: $white;
+                font-size: 14px;
+                text-decoration: underline;
+                display: inline-block;
+                margin-left: 0.5rem;
+            }
         }
 
         .font-size {
@@ -989,6 +997,7 @@ $firecat:#FB8B3F;
                 }
             }
         }
+
     }
 
 
