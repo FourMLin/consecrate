@@ -962,7 +962,14 @@ textarea {
 @media all and (max-width: 991px) {
   .character-stand {
     position: relative;
-    height: 210px;
+    height: 300px;
+  }
+}
+
+@media all and (max-width: 568px) {
+  .character-stand {
+    position: relative;
+    height: 188px;
   }
 }
 
@@ -1092,8 +1099,14 @@ textarea {
 
 @media all and (max-width: 991px) {
   .sign {
-    width: 138px;
-    right: 7%;
+    width: 189px;
+  }
+}
+
+@media all and (max-width: 568px) {
+  .sign {
+    width: 146px;
+    right: 4%;
   }
 }
 
@@ -1307,13 +1320,20 @@ textarea {
 @media all and (max-width: 991px) {
   .firecat .character-stand {
     background-image: url(../img/firecat-square.png);
-    right: 0%;
+    right: 12%;
     background-position: center left 25%;
     width: 100%;
-    background-size: 45%;
+    background-size: 63%;
   }
   .firecat .character-bg {
     background-image: none;
+  }
+}
+
+@media all and (max-width: 568px) {
+  .firecat .character-stand {
+    right: 0%;
+    background-size: 45%;
   }
 }
 
@@ -1341,13 +1361,20 @@ textarea {
 @media all and (max-width: 991px) {
   .iceborg .character-stand {
     background-image: url(../img/iceborg-square.png);
-    right: 0%;
+    right: 12%;
     background-position: center left 25%;
     width: 100%;
-    background-size: 45%;
+    background-size: 63%;
   }
   .iceborg .character-bg {
     background-image: none;
+  }
+}
+
+@media all and (max-width: 568px) {
+  .iceborg .character-stand {
+    right: 0%;
+    background-size: 45%;
   }
 }
 
@@ -1375,13 +1402,20 @@ textarea {
 @media all and (max-width: 991px) {
   .blackbug .character-stand {
     background-image: url(../img/BB-square.png);
-    right: 0%;
+    right: 12%;
     background-position: center left 25%;
     width: 100%;
-    background-size: 45%;
+    background-size: 63%;
   }
   .blackbug .character-bg {
     background-image: none;
+  }
+}
+
+@media all and (max-width: 568px) {
+  .blackbug .character-stand {
+    right: 0%;
+    background-size: 45%;
   }
 }
 
@@ -1409,13 +1443,20 @@ textarea {
 @media all and (max-width: 991px) {
   .twilight .character-stand {
     background-image: url(../img/twilight-square.png);
-    right: 0%;
+    right: 12%;
     background-position: center left 25%;
     width: 100%;
-    background-size: 45%;
+    background-size: 63%;
   }
   .twilight .character-bg {
     background-image: none;
+  }
+}
+
+@media all and (max-width: 568px) {
+  .twilight .character-stand {
+    right: 0%;
+    background-size: 45%;
   }
 }
 
@@ -1443,12 +1484,70 @@ textarea {
 @media all and (max-width: 991px) {
   .sweet .character-stand {
     background-image: url(../img/sweet-square.png);
-    right: 0%;
+    right: 12%;
     background-position: center left 25%;
     width: 100%;
-    background-size: 45%;
+    background-size: 63%;
   }
   .sweet .character-bg {
     background-image: none;
   }
+}
+
+@media all and (max-width: 568px) {
+  .sweet .character-stand {
+    right: 0%;
+    background-size: 45%;
+  }
+}
+
+.umekyo-license {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 5;
+}
+
+.page .umekyo-license {
+  position: absolute;
+  bottom: 10px;
+  right: 50%;
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 5;
+}
+
+.copyright {
+  font-size: 12px;
+  color: #8a8686;
+  margin: auto 0;
+}
+
+.umekyo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media all and (max-width: 991px) {
+  .umekyo {
+    display: none;
+  }
+}
+
+.umekyo .umekyo-penana {
+  width: 30px;
+  height: 30px;
+  margin: 0 0.5rem;
+}
+
+.umekyo .umekyo-twitter {
+  width: 30px;
+  height: 30px;
 }
