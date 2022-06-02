@@ -728,8 +728,13 @@ $firecat:#FB8B3F;
     @media all and (max-width:991px) {
         display: block;
         flex-direction: unset;
-        margin: 5% auto auto;
+        margin: auto;
         max-width: 60%;
+    }
+
+    @media all and (max-width:568px){
+        max-width: 90%;
+        margin: 5% auto auto;
     }
 }
 
@@ -795,6 +800,10 @@ $firecat:#FB8B3F;
         @media all and (max-width:991px) {
             max-width: 270px;
             margin: auto;
+        }
+
+        @media all and (max-width:568px){
+            max-width: 235px;
         }
     }
 

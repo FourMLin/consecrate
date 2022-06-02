@@ -923,8 +923,15 @@ textarea {
     -webkit-box-direction: unset;
         -ms-flex-direction: unset;
             flex-direction: unset;
-    margin: 5% auto auto;
+    margin: auto;
     max-width: 60%;
+  }
+}
+
+@media all and (max-width: 568px) {
+  .page-content {
+    max-width: 90%;
+    margin: 5% auto auto;
   }
 }
 
@@ -1013,6 +1020,12 @@ textarea {
   .name .name-img {
     max-width: 270px;
     margin: auto;
+  }
+}
+
+@media all and (max-width: 568px) {
+  .name .name-img {
+    max-width: 235px;
   }
 }
 
@@ -1439,4 +1452,3 @@ textarea {
     background-image: none;
   }
 }
-/*# sourceMappingURL=style.css.map */
